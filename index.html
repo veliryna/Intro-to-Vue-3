@@ -2,18 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
-    <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+    <title>Vue Basic</title>
+    <link rel="stylesheet" href="./assets/styles.css" />   
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
     <div id="app">
-      <h1>Product goes here</h1>
+      <h1>{{ message }}</h1>
+      <button @click="clickMe">Click Me!</button>
     </div>
 
-    <!-- Import Js -->
-    <script src="./main.js"></script>
+    
+    <script>
+      const app = Vue.createApp({
+          data() {
+            return {
+              message: 'Hello From Vue!'
+            }
+          },
+          methods: {
+            clickMe() {
+              console.log('Button clicked!')
+              this.message = 'Updated Message!'
+            }
+          }
+      })
+      app.mount('#app')
+    </script>
+    
   </body>
 </html>
